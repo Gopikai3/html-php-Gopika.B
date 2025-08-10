@@ -1,0 +1,19 @@
+<?php
+echo "<h3>PHP Functions Example</h3>";
+
+// (i) rand() → Generates a random number
+echo "Random number between 1 and 100: " . rand(1, 100) . "<br>";
+
+// (ii) abs() → Returns the absolute (positive) value of a number
+echo "Absolute value of -25: " . abs(-25) . "<br>";
+
+// (iii) str_replace() → Replaces all occurrences of a search string with a replacement string
+$text = "I love apples";
+echo "Replacing 'apples' with 'mangoes': " . str_replace("apples", "mangoes", $text) . "<br>";
+
+// (iv) pi() → Returns the value of π (pi)
+echo "Value of Pi: " . pi() . "<br>";
+
+// (v) ceil() → Rounds a number up to the nearest integer
+echo "Ceil of 4.2: " . ceil(4.2) . "<br>";
+?>
