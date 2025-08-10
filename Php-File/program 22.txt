@@ -1,0 +1,13 @@
+<?php
+// Given string
+$text = "PHP is a popular scripting language. PHP can be used for web development. PHP is powerful.";
+
+// Word to search
+$word = "PHP";
+
+// Count occurrences (case-sensitive)
+$count = substr_count($text, $word);
+
+// Display results
+echo "The word '$word' occurs $count times in the given string.";
+?>
