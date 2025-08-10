@@ -1,0 +1,38 @@
+<?php
+session_start(); // Start the session to store data
+
+// If name is passed via GET, store in session
+if (isset($_GET['name'])) {
+    $_SESSION['name'] = $_GET['name'];
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passing Data in PHP</title>
+</head>
+<body>
+    <h2>Pass Data Between Pages (Single File Demo)</h2>
+    
+    <!-- Form to send data via GET -->
+    <form method="get" action="">
+        Enter Name: <input type="text" name="name">
+        <input type="submit" value="Submit via POST">
+    </form>
+
+    <h3>Data via GET Method:</h3>
+    <?php
+    if (isset($_GET['name'])) {
+        echo "Name from GET: " . htmlspecialchars($_GET['name']);
+    }
+    ?>
+
+    <h3>Data via SESSION Method:</h3>
+    <?php
+    if (isset($_SESSION['name'])) {
+        echo "Name from SESSION: " . htmlspecialchars($_SESSION['name']);
+    }
+    ?>
+</body>
+</html>
+
