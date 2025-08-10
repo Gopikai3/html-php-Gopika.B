@@ -1,0 +1,31 @@
+<?php
+echo "<h3>Random Password Generator</h3>";
+
+$passwordLength = 12;
+
+// Required character sets
+$lowercase = 'abcdefghijklmnopqrstuvwxyz';
+$uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$numbers   = '0123456789';
+$special   = '!@#$%^&*()_-+=<>?';
+
+// Combine all characters for random filling
+$allChars = $lowercase . $uppercase . $numbers . $special;
+
+// Start password with at least one from each set
+$password = '';
+$password .= $lowercase[rand(0, strlen($lowercase) - 1)];
+$password .= $uppercase[rand(0, strlen($uppercase) - 1)];
+$password .= $numbers[rand(0, strlen($numbers) - 1)];
+$password .= $special[rand(0, strlen($special) - 1)];
+
+// Fill the rest with random characters from all sets
+for ($i = strlen($password); $i < $passwordLength; $i++) {
+    $password .= $allChars[rand(0, strlen($allChars) - 1)];
+}
+
+// Shuffle to avoid predictable pattern
+$password = str_shuffle($password);
+
+echo "Generated Password: <b>$password</b>";
+?>
