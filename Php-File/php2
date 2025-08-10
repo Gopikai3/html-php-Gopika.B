@@ -1,0 +1,22 @@
+<?php
+$size = 3;
+
+// Print header row
+echo "     ";
+for ($j = 1; $j <= $size; $j++) {
+    echo $j . "      ";
+}
+echo "\n";
+
+// Loop for table
+for ($i = 1; $i <= $size; $i++) {
+    echo $i . "    ";
+    for ($j = 1; $j <= $size; $j++) {
+        $result = $i / $j;
+        // Format to 2 decimal places, remove trailing zeros
+        $formatted = rtrim(rtrim(number_format($result, 2), '0'), '.');
+        echo $formatted . "     ";
+    }
+    echo "\n";
+}
+?>
