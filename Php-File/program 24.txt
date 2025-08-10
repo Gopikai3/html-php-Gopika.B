@@ -1,0 +1,47 @@
+<?php
+$str = "  Hello World! PHP is Awesome.  ";
+
+// 1. Trim spaces
+echo "Trimmed String: '" . trim($str) . "'<br>";
+
+// 2. String length
+echo "Length: " . strlen($str) . "<br>";
+
+// 3. Word count
+echo "Word Count: " . str_word_count($str) . "<br>";
+
+// 4. Reverse string
+echo "Reversed: " . strrev($str) . "<br>";
+
+// 5. Convert to uppercase
+echo "Uppercase: " . strtoupper($str) . "<br>";
+
+// 6. Convert to lowercase
+echo "Lowercase: " . strtolower($str) . "<br>";
+
+// 7. Replace text
+echo "Replace 'PHP' with 'Java': " . str_replace("PHP", "Java", $str) . "<br>";
+
+// 8. Substring
+echo "Substring (0, 5): " . substr($str, 0, 5) . "<br>";
+
+// 9. Position of substring
+echo "Position of 'PHP': " . strpos($str, "PHP") . "<br>";
+
+// 10. Repeat string
+echo "Repeated String: " . str_repeat("Hi! ", 3) . "<br>";
+
+// 11. Shuffle string
+echo "Shuffled: " . str_shuffle($str) . "<br>";
+
+// 12. Add Slashes
+echo "Add Slashes: " . addslashes($str) . "<br>";
+
+// 13. Remove HTML Tags
+$html = "<h1>Hello</h1> <p>World</p>";
+echo "Without HTML Tags: " . strip_tags($html) . "<br>";
+
+// 14. Compare strings
+echo "Compare 'Hello' and 'hello': " . strcmp("Hello", "hello") . "<br>";
+?>
+
