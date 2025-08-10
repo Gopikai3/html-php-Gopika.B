@@ -1,0 +1,25 @@
+<?php
+// Variables
+$a = 15;
+$b = 4;
+
+echo "<h3>Mathematical Operators in PHP</h3>";
+
+// 1. Addition (+)
+echo "Addition (\$a + \$b) = " . ($a + $b) . "<br>";
+
+// 2. Subtraction (-)
+echo "Subtraction (\$a - \$b) = " . ($a - $b) . "<br>";
+
+// 3. Multiplication (*)
+echo "Multiplication (\$a * \$b) = " . ($a * $b) . "<br>";
+
+// 4. Division (/)
+echo "Division (\$a / \$b) = " . ($a / $b) . "<br>";
+
+// 5. Modulus (%)
+echo "Modulus (\$a % \$b) = " . ($a % $b) . "<br>";
+
+// 6. Exponentiation (**)
+echo "Exponentiation (\$a ** \$b) = " . ($a ** $b) . "<br>";
+?>
