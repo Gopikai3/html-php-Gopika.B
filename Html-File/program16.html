@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Two Numbers</title>
+</head>
+<body>
+    <h2>Sum Calculator</h2>
+    <form method="post">
+        Enter First Number: <input type="number" name="num1" required><br><br>
+        Enter Second Number: <input type="number" name="num2" required><br><br>
+        <input type="submit" name="calculate" value="Find Sum">
+    </form>
+
+    <?php
+    // Function to add two numbers
+    function addNumbers($a, $b) {
+        return $a + $b;
+    }
+
+    if (isset($_POST['calculate'])) {
+        $num1 = $_POST['num1'];
+        $num2 = $_POST['num2'];
+
+        $sum = addNumbers($num1, $num2);
+
+        echo "<h3>The sum of $num1 and $num2 is: $sum</h3>";
+    }
+    ?>
+</body>
+</html>
