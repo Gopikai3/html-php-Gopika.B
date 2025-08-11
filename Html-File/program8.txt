@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drink Price Comparison</title>
+</head>
+<body>
+    <h2>Soft Drink Price Comparison</h2>
+
+    <p><b>Drink A:</b> ₹25 for size 11</p>
+    <p><b>Drink B:</b> ₹23 for size 9</p>
+
+    <button onclick="compareDrinks()">Compare</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function compareDrinks() {
+            // Drink A details
+            let costA = 25;
+            let sizeA = 11;
+            let pricePerUnitA = costA / sizeA;
+
+            // Drink B details
+            let costB = 23;
+            let sizeB = 9;
+            let pricePerUnitB = costB / sizeB;
+
+            let resultText = "Drink A: ₹" + pricePerUnitA.toFixed(2) + " per unit<br>" +
+                             "Drink B: ₹" + pricePerUnitB.toFixed(2) + " per unit<br><br>";
+
+            if (pricePerUnitA < pricePerUnitB) {
+                resultText += "✅ Drink A is cheaper per unit volume.";
+            } else if (pricePerUnitA > pricePerUnitB) {
+                resultText += "✅ Drink B is cheaper per unit volume.";
+            } else {
+                resultText += "Both drinks cost the same per unit volume.";
+            }
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
