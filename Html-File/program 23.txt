@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET vs POST Example</title>
+</head>
+<body>
+    <h2>Search (Using GET)</h2>
+    <form method="get" action="">
+        Search: <input type="text" name="query" required>
+        <input type="submit" value="Search">
+    </form>
+
+    <?php
+    if (isset($_GET['query'])) {
+        $search = htmlspecialchars($_GET['query']);
+        echo "You searched for: <b>$search</b> (shown in URL)";
+    }
+    ?>
+
+    <hr>
+
+    <h2>Login (Using POST)</h2>
+    <form method="post" action="">
+        Username: <input type="text" name="username" required><br><br>
+        Password: <input type="password" name="password" required><br><br>
+        <input type="submit" name="login" value="Login">
+    </form>
+
+    <?php
+    if (isset($_POST['login'])) {
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
+        echo "Login attempted for user: <b>$username</b> (password is hidden from URL)";
+    }
+    ?>
+</body>
+</html>
