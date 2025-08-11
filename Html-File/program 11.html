@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Days of the Week</title>
+</head>
+<body>
+    <h2>Days of the Week Finder</h2>
+    <form method="post">
+        Enter a number (1 to 7): 
+        <input type="number" name="day" min="1" max="7" required>
+        <input type="submit" name="show" value="Show Day">
+    </form>
+
+    <?php
+    if (isset($_POST['show'])) {
+        $day = $_POST['day'];
+
+        switch ($day) {
+            case 1:
+                echo "Day $day: Sunday";
+                break;
+            case 2:
+                echo "Day $day: Monday";
+                break;
+            case 3:
+                echo "Day $day: Tuesday";
+                break;
+            case 4:
+                echo "Day $day: Wednesday";
+                break;
+            case 5:
+                echo "Day $day: Thursday";
+                break;
+            case 6:
+                echo "Day $day: Friday";
+                break;
+            case 7:
+                echo "Day $day: Saturday";
+                break;
+            default:
+                echo "Invalid number! Please enter between 1 and 7.";
+        }
+    }
+    ?>
+</body>
+</html>
