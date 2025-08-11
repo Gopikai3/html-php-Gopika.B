@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grades Checker</title>
+</head>
+<body>
+    <h2>Enter Students' Marks</h2>
+    <form method="post">
+        Number of Students: <input type="number" name="total" required>
+        <input type="submit" name="set" value="Set Students">
+    </form>
+
+    <?php
+    // Step 1: Ask for marks inputs based on number of students
+    if (isset($_POST['set'])) {
+        $total = $_POST['total'];
+        echo "<form method='post'>";
+        echo "<input type='hidden' name='total' value='$total'>";
+        for ($i = 1; $i <= $total; $i++) {
+            echo "Marks of Student $i: <input type='number' name='marks[]' min='0' max='100' required><br>";
+        }
+        echo "<input type='submit' name='check' value='Check Grades'>";
+        echo "</form>";
+    }
+
+    // Step 2: Process marks and display grades
+    if (isset($_POST['check'])) {
+        $marks = $_POST['marks'];
+        $total = $_POST['total'];
+
+        echo "<h3>Grades:</h3>";
+        for ($i = 0; $i < $total; $i++) {
+            $mark = $marks[$i];
+            if ($mark >= 90) {
+                $grade = "A+";
+            } elseif ($mark >= 80) {
+                $grade = "A";
+            } elseif ($mark >= 70) {
+                $grade = "B";
+            } elseif ($mark >= 60) {
+                $grade = "C";
+            } elseif ($mark >= 50) {
+                $grade = "D";
+            } else {
+                $grade = "F";
+            }
+            echo "Student " . ($i+1) . ": Marks = $mark, Grade = $grade<br>";
+        }
+    }
+    ?>
+</body>
+</html>
