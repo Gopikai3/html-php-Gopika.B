@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Transaction</title>
+</head>
+<body>
+    <h2>Bank Transaction System</h2>
+    <form method="post">
+        Customer Name: <input type="text" name="name" required><br><br>
+        Current Balance: <input type="number" name="balance" min="0" required><br><br>
+        
+        Transaction Type:
+        <select name="transaction">
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+        </select><br><br>
+        
+        Amount: <input type="number" name="amount" min="1" required><br><br>
+        
+        <input type="submit" name="process" value="Submit Transaction">
+    </form>
+
+    <?php
+    if (isset($_POST['process'])) {
+        $name = htmlspecialchars($_POST['name']);
+        $balance = $_POST['balance'];
+        $transaction = $_POST['transaction'];
+        $amount = $_POST['amount'];
+
+        // Using if-else control structure
+        if ($transaction == "deposit") {
+            $balance += $amount;
+            echo "<h3>Deposit Successful</h3>";
+            echo "Hello <b>$name</b>, your new balance is ₹$balance.";
+        }
+        elseif ($transaction == "withdraw") {
+            // Using nested if
+            if ($amount <= $balance) {
+                $balance -= $amount;
+                echo "<h3>Withdrawal Successful</h3>";
+                echo "Hello <b>$name</b>, your new balance is ₹$balance.";
+            } else {
+                echo "<h3>Insufficient Balance!</h3>";
+                echo "Hello <b>$name</b>, you cannot withdraw ₹$amount. Your current balance is ₹$balance.";
+            }
+        }
+        else {
+            echo "Invalid transaction type.";
+        }
+    }
+    ?>
+</body>
+</html>
