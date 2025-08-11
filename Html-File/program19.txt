@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highest and Lowest Finder</title>
+</head>
+<body>
+    <h2>Find Highest and Lowest Numbers</h2>
+    <form method="post">
+        Enter numbers separated by commas:<br>
+        <input type="text" name="numbers" placeholder="e.g. 10, 25, 3, 45, 8" required>
+        <br><br>
+        <input type="submit" name="find" value="Find Values">
+    </form>
+
+    <?php
+    // Function to find highest and lowest in an array
+    function findHighLow($arr) {
+        $highest = max($arr);
+        $lowest = min($arr);
+        return array($highest, $lowest);
+    }
+
+    if (isset($_POST['find'])) {
+        // Get user input and convert to array
+        $input = $_POST['numbers'];
+        $numbers = array_map('intval', explode(',', $input));
+
+        list($highest, $lowest) = findHighLow($numbers);
+
+        echo "<h3>Results:</h3>";
+        echo "Numbers: " . implode(", ", $numbers) . "<br>";
+        echo "Highest Value: <b>$highest</b><br>";
+        echo "Lowest Value: <b>$lowest</b>";
+    }
+    ?>
+</body>
+</html>
