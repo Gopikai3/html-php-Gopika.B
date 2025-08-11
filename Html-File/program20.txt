@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form with Validation</title>
+</head>
+<body>
+    <h2>Contact Us</h2>
+    <?php
+    $name = $email = $message = "";
+    $nameErr = $emailErr = $messageErr = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Name validation
+        if (empty($_POST["name"])) {
+            $nameErr = "Name is required";
+        } else {
+            $name = htmlspecialchars($_POST["name"]);
+        }
+
+        // Email validation
+        if (empty($_POST["email"])) {
+            $emailErr = "Email is required";
+        } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        } else {
+            $email = htmlspecialchars($_POST["email"]);
+        }
+
+        // Message validation
+        if (empty($_POST["message"])) {
+            $messageErr = "Message is required";
+        } else {
+            $message = htmlspecialchars($_POST["message"]);
+        }
+
+        // If all fields are valid
+        if ($nameErr == "" && $emailErr == "" && $messageErr == "") {
+            echo "<h3>Form submitted successfully!</h3>";
+            echo "Name: <b>$name</b><br>";
+            echo "Email: <b>$email</b><br>";
+            echo "Message: <b>$message</b><br>";
+        }
+    }
+    ?>
+
+    <form method="post" action="">
+        Name: <input type="text" name="name" value="<?php echo $name; ?>">
+        <span style="color:red;"><?php echo $nameErr; ?></span>
+        <br><br>
+
+        Email: <input type="text" name="email" value="<?php echo $email; ?>">
+        <span style="color:red;"><?php echo $emailErr; ?></span>
+        <br><br>
+
+        Message:<br>
+        <textarea name="message" rows="5" cols="30"><?php echo $message; ?></textarea>
+        <span style="color:red;"><?php echo $messageErr; ?></span>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
